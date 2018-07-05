@@ -16,3 +16,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.app-main {
+  width: $max-content-width;
+  margin: 0 auto;
+}
+</style>

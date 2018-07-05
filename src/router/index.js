@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import Subjects from 'views/subject/Subjects'
+import Subject from 'views/subject/Subject'
+import SubjectSubmit from 'views/subject/SubjectSubmit'
+
 const Layout = resolve => require.ensure([], () => resolve(require('../views/layout/Layout')), 'Layout')
 const Index = resolve => require.ensure([], () => resolve(require('../views/index/index')), 'Index')
 
@@ -26,11 +30,28 @@ export const constantRouterMap = [
     path: '/',
     component: Layout,
     hidden: true,
-    redirect: '/index',
     children: [{
-      path: '/index',
+      path: '',
       component: Index,
-      meta: { title: '午安网 - 过你想过的生活' }
+      meta: { title: 'Speaking Master - A FREE speaking practice website' }
+    }]
+  },
+  {
+    path: '/subjects',
+    component: Layout,
+    hidden: true,
+    children: [{
+      path: '',
+      name: 'subjects',
+      component: Subjects
+    }, {
+      path: ':subjectId',
+      name: 'subject',
+      component: Subject
+    }, {
+      path: ':subjectId/submit',
+      name: 'subjectSubmit',
+      component: SubjectSubmit
     }]
   },
   {

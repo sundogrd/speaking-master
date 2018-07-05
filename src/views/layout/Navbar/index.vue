@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <div class="navbar-header">
-      <div class="logo" @click="$router.push({path: '/'})">Website</div>
+      <div class="logo" @click="$router.push({path: '/'})">Speaking Master</div>
     </div>
   </div>
 </template>
@@ -48,7 +48,7 @@ export default {
     height: 55px;
     .logo{
       cursor: pointer;
-      color: #fff;
+      color: #006bff;
       font-size: 30px;
       display: flex;
       align-items: center;

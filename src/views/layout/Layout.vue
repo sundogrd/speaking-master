@@ -31,7 +31,9 @@ export default {
   min-width: 750px;
   .navbar-wrapper {
     z-index: 100;
-    background-color: #f32941;
+    height: $nav-height;
+    width: $max-content-width;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
