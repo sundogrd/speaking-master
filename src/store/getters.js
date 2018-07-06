@@ -1,4 +1,4 @@
 const getters = {
-  user: state => state.user
+  auth: state => state.auth
 }
 export default getters

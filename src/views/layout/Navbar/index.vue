@@ -2,12 +2,34 @@
   <div class="navbar">
     <div class="navbar-header">
       <div class="logo" @click="$router.push({path: '/'})">Speaking Master</div>
+      <div class="user-banner">
+        <span @click="goAuth">Auth</span>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+
+function composeUri (uri, query = {}) {
+  var f, s, arr
+
+  arr = []
+
+  for (f in query) {
+    if (typeof query.hasOwnProperty !== 'function' || query.hasOwnProperty(f)) {
+      arr.push(`${f}=${encodeURIComponent(query[f])}`)
+    }
+  }
+
+  s = arr.join('&')
+
+  if (s && !/\?$/.test(uri)) {
+    s = '?' + s
+  }
+  return `${uri}${s}`
+}
 
 export default {
   data () {
@@ -25,6 +47,15 @@ export default {
     },
     visibleChange () {
       this.isShowDrop = !this.isShowDrop
+    },
+    goAuth () {
+      window.location.href = composeUri(process.env.OAUTH_LWIO.endpoint.authorize, {
+        'response_type': process.env.OAUTH_LWIO.oauthClientInfo.responseType,
+        'client_id': process.env.OAUTH_LWIO.oauthClientInfo.id,
+        'scope': process.env.OAUTH_LWIO.oauthClientInfo.scope,
+        'redirect_uri': process.env.OAUTH_LWIO.oauthClientInfo.redirectUri,
+        'state': 'fuck'
+      })
     }
   },
   mounted () {

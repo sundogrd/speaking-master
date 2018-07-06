@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
+import ReceiveGrant from 'views/auth/ReceiveGrant'
+
 import Subjects from 'views/subject/Subjects'
 import Subject from 'views/subject/Subject'
 import SubjectSubmit from 'views/subject/SubjectSubmit'
@@ -35,6 +37,10 @@ export const constantRouterMap = [
       component: Index,
       meta: { title: 'Speaking Master - A FREE speaking practice website' }
     }]
+  },
+  {
+    path: '/receive-grant',
+    component: ReceiveGrant
   },
   {
     path: '/subjects',

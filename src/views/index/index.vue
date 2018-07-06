@@ -5,13 +5,24 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 
 export default {
   name: 'index',
   components: {
 
   },
-  computed: {}
+  computed: {},
+  mounted () {
+    this.getUserInfo().then(res => {
+      debugger
+    })
+  },
+  methods: {
+    ...mapActions([
+      'getUserInfo'
+    ])
+  }
 }
 </script>
 
