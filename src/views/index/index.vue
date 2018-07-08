@@ -14,9 +14,10 @@ export default {
   },
   computed: {},
   mounted () {
-    this.getUserInfo().then(res => {
-      debugger
-    })
+    this.getUserInfo()
+      .then(res => {
+      }).catch(e => {
+      })
   },
   methods: {
     ...mapActions([

@@ -21,7 +21,7 @@ module.exports = {
       token: '"http://localhost:29305/oauth/token"'
     },
     api: {
-        getUserInfo: '"http://localhost:29305/api/user/detail"'
+        getUserInfo: '"http://localhost:29305/api/users"'
     }
   }
 }

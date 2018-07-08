@@ -9,7 +9,9 @@ function isExpired (time) {
 
 const auth = {
   state: {
-    user: {},
+    user: {
+      id: null
+    },
     token: {
       accessToken: null,
       refreshToken: null,
@@ -62,13 +64,22 @@ const auth = {
           'expiresAt': Date.now() + resp.expires_in * 1000// when the access token will expire
         })
 
+        const tokenPayload = JSON.parse(atob(resp.access_token.split('.')[1]))
+
+        commit('SET_USER', {
+          username: tokenPayload.username
+        })
+
         return true
       }
       return false
     },
-    async getUserInfo ({commit}) {
-      const resp = await getUserInfoAPI()
-      return resp
+    async getUserInfo ({commit, state}) {
+      const user = await getUserInfoAPI(state.user.username)
+      commit('SET_USER', {
+        ...user
+      })
+      return user
     }
   }
 }

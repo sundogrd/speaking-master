@@ -3,7 +3,7 @@ import store from 'store'
 // get user details
 export function getUser () {
   return fetch({
-    url: `/users/${store.state.user.id}`,
+    url: `/users/${store.state.user.username}`,
     method: 'get'
   })
 }

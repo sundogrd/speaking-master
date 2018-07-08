@@ -2,9 +2,9 @@
 import fetch from 'utils/fetch'
 import store from 'store'
 
-export function getUserInfo () {
+export function getUserInfo (username) {
   return fetch({
-    url: process.env.OAUTH_LWIO.api.getUserInfo,
+    url: `${process.env.OAUTH_LWIO.api.getUserInfo}/${username}`,
     method: 'get',
     data: {
       token: store.getters.auth.token.accessToken,
