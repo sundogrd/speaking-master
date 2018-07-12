@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import { getSubjectById, publishSubmission } from 'api/subjects'
+
 export default {
   name: 'index',
   data () {
@@ -35,25 +37,15 @@ export default {
   },
   computed: {},
   methods: {
-    getSubjectData (subjectId) {
-      return {
-        id: 1,
-        name: 'Most attractive theme of children museum exhibition',
-        content: 'What the fuck is that you are a fucking doubi',
-        tags: [
-          'Toefl',
-          'one of three',
-          'task 1'
-        ],
-        paticipants: 12
-      }
-    },
     publish () {
-      console.log('发布成功')
+      publishSubmission(this.$route.params.subjectId, {
+        content: 'test',
+        audioUrl: 'test'
+      })
     }
   },
   async mounted () {
-    this.subjectData = this.getSubjectData(this.$route.params.subjectId)
+    this.subjectData = await getSubjectById(this.$route.params.subjectId)
   }
 }
 </script>
