@@ -7,6 +7,8 @@ import Subjects from 'views/subject/Subjects'
 import Subject from 'views/subject/Subject'
 import SubjectSubmit from 'views/subject/SubjectSubmit'
 
+import RecorderTest from 'components/SpeakingRecorder'
+
 const Layout = resolve => require.ensure([], () => resolve(require('../views/layout/Layout')), 'Layout')
 const Index = resolve => require.ensure([], () => resolve(require('../views/index/index')), 'Index')
 
@@ -59,6 +61,10 @@ export const constantRouterMap = [
       name: 'subjectSubmit',
       component: SubjectSubmit
     }]
+  },
+  {
+    path: '/recorder',
+    component: RecorderTest
   },
   {
     path: '*',
