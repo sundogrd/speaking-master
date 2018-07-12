@@ -25,6 +25,11 @@ const auth = {
         state.token[key] = token[key]
       }
     },
+    CLEAR_TOKEN: (state) => {
+      for (const key in state.token) {
+        state.token[key] = null
+      }
+    },
     SET_USER: (state, userInfo) => {
       for (const key in userInfo) {
         if (key in state) {
@@ -80,6 +85,10 @@ const auth = {
         ...user
       })
       return user
+    },
+    async signoutAction ({commit, state}) {
+      commit('CLEAR_USER')
+      commit('CLEAR_TOKEN')
     }
   }
 }

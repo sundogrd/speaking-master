@@ -3,14 +3,15 @@
     <div class="navbar-header">
       <div class="logo" @click="$router.push({path: '/'})">Speaking Master</div>
       <div class="user-banner">
-        <span @click="goAuth">Auth</span>
+        <span v-if="!auth.user && auth.user.username" @click="goAuth">Auth</span>
+        <span v-else @click="signout">{{auth.user.username}} SignOut</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 function composeUri (uri, query = {}) {
   var f, s, arr
@@ -37,11 +38,14 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['user'])
+    ...mapGetters(['auth'])
   },
   methods: {
-    logout () {
-      this.$store.dispatch('Logout').then(() => {
+    ...mapActions([
+      'signoutAction'
+    ]),
+    signout () {
+      this.signoutAction().then(() => {
         location.reload() // 为了重新实例化vue-router对象 避免bug
       })
     },
