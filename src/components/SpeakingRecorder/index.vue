@@ -43,7 +43,7 @@ export default {
     try {
     // webkit shim
       window.AudioContext = window.AudioContext || window.webkitAudioContext
-      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia
+      navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia
       window.URL = window.URL || window.webkitURL
 
       this.audio_context = new AudioContext()
@@ -53,9 +53,11 @@ export default {
       alert('No web audio support in this browser!')
     }
 
-    navigator.getUserMedia({audio: true}, this.startUserMedia, function (e) {
-      __log('No live audio input: ' + e)
-    })
+    navigator.mediaDevices.getUserMedia({audio: true})
+      .then(this.startUserMedia)
+      .catch(e => {
+        __log('No live audio input: ' + e)
+      })
   },
   methods: {
     startRecording () {
