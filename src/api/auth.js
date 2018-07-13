@@ -1,15 +1,15 @@
 /* eslint camelcase: "off" */
 import fetch from 'utils/fetch'
-import store from 'store'
+// import store from 'store'
 
 export function getUserInfo (username) {
   return fetch({
-    url: `${process.env.OAUTH_LWIO.api.getUserInfo}/${username}`,
-    method: 'get',
-    data: {
-      token: store.getters.auth.token.accessToken,
-      type: store.getters.auth.token.tokenType
-    }
+    url: `users/${username}`,
+    method: 'get'
+    // data: {
+    //   token: store.getters.auth.token.accessToken,
+    //   type: store.getters.auth.token.tokenType
+    // }
   })
 }
 

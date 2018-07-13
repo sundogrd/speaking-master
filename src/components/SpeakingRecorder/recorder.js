@@ -16,6 +16,12 @@ export class Recorder {
     exportWAV: []
   };
 
+  /**
+   *Creates an instance of Recorder.
+   * @param {*} source StreamSource
+   * @param {*} cfg Config
+   * @memberof Recorder
+   */
   constructor (source, cfg) {
     Object.assign(this.config, cfg)
     this.context = source.context

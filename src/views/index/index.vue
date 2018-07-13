@@ -13,9 +13,10 @@ export default {
 
   },
   computed: {},
-  mounted () {
+  async mounted () {
     this.getUserInfo()
       .then(res => {
+        debugger
       }).catch(e => {
       })
   },

@@ -3,7 +3,7 @@
     <div class="navbar-header">
       <div class="logo" @click="$router.push({path: '/'})">Speaking Master</div>
       <div class="user-banner">
-        <span v-if="!auth.user && auth.user.username" @click="goAuth">Auth</span>
+        <span v-if="!auth.user.username" @click="goAuth">Auth</span>
         <span v-else @click="signout">{{auth.user.username}} SignOut</span>
       </div>
     </div>

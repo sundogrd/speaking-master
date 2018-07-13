@@ -14,12 +14,12 @@ const service = axios.create({
 // request拦截器
 service.interceptors.request.use(config => {
   // Do something before request is sent
-  // if (store.getters.user.accessToken) {
-  //   config.headers['Access-Token'] = store.getters.user.accessToken
-  // }
-  // if (store.getters.user.idToken) {
-  //   config.headers['ID-Token'] = store.getters.user.idToken
-  // }
+  if (store.getters.auth.token.accessToken) {
+    config.headers.common['Access-Token'] = store.getters.auth.token.accessToken
+  }
+  if (store.getters.auth.token.refreshToken) {
+    config.headers.common['Refresh-Token'] = store.getters.auth.token.refreshToken
+  }
   return config
 }, error => {
   Promise.reject(error)

@@ -24,10 +24,7 @@ function __log (e, data) {
 export default {
   name: 'recorder',
   props: {
-    iconClass: {
-      type: String,
-      required: true
-    }
+
   },
   data () {
     return {
@@ -35,13 +32,10 @@ export default {
     }
   },
   computed: {
-    iconName () {
-      return `#icon-${this.iconClass}`
-    }
   },
   mounted () {
     try {
-    // webkit shim
+      // TODO: webkit shim
       window.AudioContext = window.AudioContext || window.webkitAudioContext
       navigator.mediaDevices.getUserMedia = navigator.mediaDevices.getUserMedia || navigator.getUserMedia || navigator.webkitGetUserMedia
       window.URL = window.URL || window.webkitURL
@@ -95,6 +89,7 @@ export default {
       })
     },
     startUserMedia (stream) {
+      // use microphone for Web Audio API source
       var input = this.audio_context.createMediaStreamSource(stream)
       __log('Media stream created.')
       // Uncomment if you want the audio to feedback directly

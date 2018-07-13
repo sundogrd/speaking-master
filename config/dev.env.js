@@ -1,7 +1,6 @@
 module.exports = {
   NODE_ENV: '"development"',
   BASE_API: '"http://localhost:8800/api/"',
-  SSO_SITE: '"http://52.78.119.221:81"',
   API_MOCK: false,
   APP_ORIGIN: '"www.baidu.com"',
 
