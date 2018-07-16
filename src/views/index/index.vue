@@ -16,7 +16,6 @@ export default {
   async mounted () {
     this.getUserInfo()
       .then(res => {
-        debugger
       }).catch(e => {
       })
   },

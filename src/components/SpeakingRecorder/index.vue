@@ -1,26 +1,17 @@
 <template>
   <div>
-    <h1>Recorder.js simple WAV export example</h1>
-
-    <p>Make sure you are using a recent version of Google Chrome.</p>
-    <p>Also before you enable microphone input either plug in headphones or turn the volume down if you want to avoid ear splitting feedback!</p>
-
     <button ref="recordBtn" @click="startRecording">record</button>
     <button ref="stopBtn" @click="stopRecording" disabled>stop</button>
 
     <h2>Recordings</h2>
-    <ul id="recordingslist"></ul>
+    <ul id="recordings-list">
 
-    <h2>Log</h2>
-    <pre id="log"></pre>
+    </ul>
   </div>
 </template>
 
 <script>
 import Recorder from './recorder.js'
-function __log (e, data) {
-  document.getElementById('log').innerHTML += '\n' + e + ' ' + (data || '')
-}
 export default {
   name: 'recorder',
   props: {
@@ -41,8 +32,8 @@ export default {
       window.URL = window.URL || window.webkitURL
 
       this.audio_context = new AudioContext()
-      __log('Audio context set up.')
-      __log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'))
+      console.log('Audio context set up.')
+      console.log('navigator.getUserMedia ' + (navigator.getUserMedia ? 'available.' : 'not present!'))
     } catch (e) {
       alert('No web audio support in this browser!')
     }
@@ -50,26 +41,21 @@ export default {
     navigator.mediaDevices.getUserMedia({audio: true})
       .then(this.startUserMedia)
       .catch(e => {
-        __log('No live audio input: ' + e)
+        console.error('No live audio input: ' + e)
       })
   },
   methods: {
     startRecording () {
       this.recorder && this.recorder.record()
-      this.$refs['recordBtn'].disabled = true
-      this.$refs['recordBtn'].nextElementSibling.disabled = false
-      __log('Recording...')
+      // this.$refs['recordBtn'].disabled = true
+      // this.$refs['recordBtn'].nextElementSibling.disabled = false
+      console.log('Recording...')
     },
     stopRecording (button) {
       this.recorder && this.recorder.stop()
-      this.$refs['stopBtn'].disabled = true
-      this.$refs['stopBtn'].previousElementSibling.disabled = false
-      __log('Stopped recording.')
-
-      // create WAV download link using audio data blob
-      this.createDownloadLink()
-
-      this.recorder.clear()
+      // this.$refs['stopBtn'].disabled = true
+      // this.$refs['stopBtn'].previousElementSibling.disabled = false
+      console.log('Stopped recording.')
     },
     createDownloadLink () {
       this.recorder && this.recorder.exportWAV(function (blob) {
@@ -91,13 +77,10 @@ export default {
     startUserMedia (stream) {
       // use microphone for Web Audio API source
       var input = this.audio_context.createMediaStreamSource(stream)
-      __log('Media stream created.')
-      // Uncomment if you want the audio to feedback directly
-      // input.connect(audio_context.destination);
-      // __log('Input connected to audio context destination.');
+      console.log('Media stream created.')
 
       this.recorder = new Recorder(input)
-      __log('Recorder initialised.')
+      console.log('Recorder initialised.')
     }
 
   }
