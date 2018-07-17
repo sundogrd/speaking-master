@@ -16,7 +16,8 @@
         录音文本组件区域
       </div>
 
-      <el-button class="record-btn-publish" type="info" @click="publish">发布</el-button>
+      <el-button class="record-btn-publish" type="info" @click="publish($route.params.subjectId)">发布</el-button>
+
     </div>
 
   </div>
@@ -47,6 +48,7 @@ export default {
   async mounted () {
     this.subjectData = await getSubjectById(this.$route.params.subjectId)
   }
+
 }
 </script>
 
@@ -57,6 +59,8 @@ export default {
     }
 
     .main-left {
+      flex: 1;
+      padding: 10px;
       width: 360px;
       .subject-content {
         background: #EBEBEB;
@@ -67,8 +71,8 @@ export default {
 
     .main-right {
       flex: 1;
-      text-align: center;
       padding: 10px;
+      text-align: center;
       .record-controller {
         height: 80px;
         overflow: auto;

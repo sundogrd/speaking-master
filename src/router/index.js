@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import ReceiveGrant from 'views/auth/ReceiveGrant'
 
+import CreateSubject from 'views/subject/CreateSubject'
 import Subjects from 'views/subject/Subjects'
 import Subject from 'views/subject/Subject'
 import SubjectSubmit from 'views/subject/SubjectSubmit'
@@ -53,6 +54,11 @@ export const constantRouterMap = [
       name: 'subjects',
       component: Subjects
     }, {
+      path: 'create',
+      name: 'subjectCreate',
+      component: CreateSubject
+    },
+    {
       path: ':subjectId',
       name: 'subject',
       component: Subject
@@ -60,7 +66,7 @@ export const constantRouterMap = [
       path: ':subjectId/submit',
       name: 'subjectSubmit',
       component: SubjectSubmit
-    }]
+    } ]
   },
   {
     path: '/recorder',

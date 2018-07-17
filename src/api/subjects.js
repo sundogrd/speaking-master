@@ -19,3 +19,16 @@ export function publishSubmission (id, {content, audioUrl}) {
     data: data
   })
 }
+
+export function createSubject ({name, content}) {
+  const data = {
+    name: name,
+    content: content
+  }
+
+  return fetch({
+    url: '/subjects',
+    method: 'post',
+    data: data
+  })
+}
