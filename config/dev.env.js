@@ -6,13 +6,14 @@ module.exports = {
 
   // OAUTH相关配置
   OAUTH_LWIO: {
+    id: "5b5c355b9e71f1a45ce52f36",
     oauthClientInfo: {
       id: '"sample_app"',
       clientSecret: '"this_is_the_client_secret"',
       name: '"Sample App"',
       scope: '"user_info:read"',
-      responseType: '"code"',
-      grantType: '"authorization_code"',
+      responseType: '"token"',
+      grantType: '"implicit_code"',
       redirectUri: '"http://localhost:9528/receive-grant"'
     },
     endpoint: {

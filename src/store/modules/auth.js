@@ -79,6 +79,17 @@ const auth = {
       }
       return false
     },
+    async setToken ({commit}, token) {
+      const tokenPayload = JSON.parse(atob(token.split('.')[1]))
+      commit('SET_TOKEN', {
+        'accessToken': token,
+        'expiresAt': tokenPayload.iat// when the access token will expire
+      })
+      commit('SET_USER', {
+        username: tokenPayload.user.username
+      })
+      return true
+    },
     async getUserInfo ({commit, state}) {
       const user = await getUserInfoAPI(state.user.username)
       commit('SET_USER', {

@@ -15,18 +15,22 @@ export default {
   computed: {},
   async mounted () {
     console.log(this)
-    const { code, state } = this.$route.query
-    this.getToken({code, state}).then(res => {
+    const { token } = this.$route.query
+    this.setToken(token).then(res => {
+      debugger
       if (res === true) {
         window.location.href = '/'
       }
+    }).catch(e => {
+      console.log(e)
     })
 
     // redirectToAuthorize(ctx)
   },
   methods: {
     ...mapActions([
-      'getToken'
+      'getToken',
+      'setToken'
     ])
   }
 }
