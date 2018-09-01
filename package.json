@@ -13,10 +13,11 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0",
+    "@nuxtjs/axios": "^5.0.0",
+    "@nuxtjs/pwa": "^2.4.0",
     "koa": "^2.3.0",
-    "vuetify": "^1.0.19",
-    "@nuxtjs/axios": "^5.0.0"
+    "nuxt": "^1.0.0",
+    "vuetify": "^1.0.19"
   },
   "devDependencies": {
     "cross-env": "^5.0.1",
