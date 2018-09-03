@@ -90,6 +90,11 @@
         </v-btn>
 
         <v-btn dark>
+          <span>Record</span>
+          <v-icon>music_note</v-icon>
+        </v-btn>
+
+        <v-btn dark>
           <span>Book</span>
           <v-icon>book</v-icon>
         </v-btn>

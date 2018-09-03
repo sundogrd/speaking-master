@@ -1,5 +1,5 @@
 <template>
-  <v-layout column justify-center align-center>
+  <v-layout column justify-center align-center class="container">
     <v-flex xs12 sm8 md6>
       <div class="text-xs-center">
         <logo/>
@@ -13,6 +13,8 @@
           <p>If you have questions, please join the official <a href="https://chat.vuetifyjs.com/" target="_blank" title="chat">discord</a>.</p>
           <p>Find a bug? Report it on the github <a href="https://github.com/vuetifyjs/vuetify/issues" target="_blank" title="contribute">issue board</a>.</p>
           <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
+          <router-link to="/record">jump record</router-link>
+          <nuxt-link to="/record">nuxt jump record</nuxt-link>
           <div class="text-xs-right">
             <em><small>&mdash; John Leider</small></em>
           </div>
@@ -36,6 +38,7 @@ import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
   layout: 'sm',
+  transition: 'bounce',
   components: {
     Logo,
     VuetifyLogo
