@@ -20,13 +20,17 @@
     "vuetify": "^1.0.19"
   },
   "devDependencies": {
-    "cross-env": "^5.0.1",
+    "autoprefixer": "^9.1.5",
     "babel-eslint": "^8.2.1",
+    "cross-env": "^5.0.1",
     "eslint": "^5.0.1",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-vue": "^4.0.0",
+    "nodemon": "^1.11.0",
+    "postcss-hexrgba": "^1.0.1",
+    "postcss-nested": "^4.1.0",
+    "postcss-responsive-type": "^1.0.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1",
-    "nodemon": "^1.11.0"
+    "stylus-loader": "^3.0.1"
   }
 }

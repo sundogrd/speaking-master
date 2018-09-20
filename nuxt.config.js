@@ -60,6 +60,15 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    analyze: true,
+    postcss: [
+      require('postcss-nested')(),
+      require('postcss-responsive-type')(),
+      require('postcss-hexrgba')(),
+      require('autoprefixer')({
+        browsers: ['last 3 versions']
+      })
+    ],
     /*
     ** You can extend webpack config here
     */
