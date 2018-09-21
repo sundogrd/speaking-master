@@ -1,33 +1,25 @@
 <template>
   <v-layout row wrap class="container index">
-    <v-flex xs10>
-      <div class="search">
-        <v-input
-          append-icon="close"
-          prepend-icon="search"
-        >
-          Default Slot
-        </v-input>
-      </div>
-    </v-flex>
-    <v-flex xs2>
+    <header>
+      <search-bar></search-bar>
       <div class="notice">
-        <p>Noti</p>
+        <icon-svg icon-class="notice" />
       </div>
-    </v-flex>
+    </header>
+    <div>
+      <p>keke</p>
+    </div>
   </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
+import SearchBar from './index/SearchBar.vue'
 
 export default {
   layout: 'sm',
   transition: 'bounce',
   components: {
-    Logo,
-    VuetifyLogo
+    SearchBar
   }
 }
 </script>
@@ -43,6 +35,12 @@ export default {
     border: 1px solid #bbbbbb;
     background: #ebebeb;
     border-radius: 20px;
+    font-size: 13px;
+    .v-input__prepend-outer {
+      i {
+        color: #bbb;
+      }
+    }
   }
   .notice {
 
