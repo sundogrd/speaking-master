@@ -5,7 +5,8 @@
   "author": "lwyj123",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --max-old-space-size=4096 --watch server",
+    "nuxt": "nuxt",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
@@ -14,11 +15,10 @@
     "commitmsg": "commitlint -e"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.0.0",
-    "@nuxtjs/pwa": "^2.4.0",
+    "@nuxtjs/axios": "^5.3.3",
+    "@nuxtjs/pwa": "^2.6.0",
     "koa": "^2.3.0",
-    "nuxt": "^2.1.0",
-    "vuetify": "^1.2.6"
+    "nuxt": "^2.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^7.1.2",
@@ -29,9 +29,9 @@
     "cross-env": "^5.0.1",
     "eslint": "^5.6.1",
     "eslint-loader": "^2.1.1",
-    "eslint-plugin-vue": "^4.7.1",
+    "eslint-plugin-vue": "^5.0.0-beta.2",
     "husky": "^0.14.3",
-    "nodemon": "^1.11.0",
+    "nodemon": "^1.18.4",
     "postcss-hexrgba": "^1.0.1",
     "postcss-nested": "^4.1.0",
     "postcss-responsive-type": "^1.0.0",

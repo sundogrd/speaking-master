@@ -16,11 +16,8 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
-    ],
-    script: [
-      { src: 'iconfont.js', type: 'text/javascript' }
+      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
     ]
   },
 
@@ -33,7 +30,6 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    'vuetify/src/stylus/main.styl',
     '~/assets/main.css',
   ],
 
@@ -41,8 +37,7 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/vuetify',
-    '@/plugins/components',
+    '@/plugins/components'
   ],
 
   /*
@@ -64,7 +59,6 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    analyze: true,
     /*
     ** You can extend webpack config here
     */
@@ -78,33 +72,6 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-      if (ctx.isServer) {
-        config.externals = [
-          nodeExternals({
-            whitelist: [/^vuetify/]
-          })
-        ]
-      }
-      config.module.rules.push({
-        test: /\.postcss$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: [
-                require('postcss-nested')(),
-                require('postcss-responsive-type')(),
-                require('postcss-hexrgba')(),
-                require('autoprefixer')({
-                  browsers: ['last 3 versions']
-                })
-              ]
-            }
-          }
-        ]
-      })
     }
   }
 }

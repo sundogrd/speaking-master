@@ -1,28 +1,20 @@
 <template>
-  <v-layout row wrap class="container index">
+  <div id="index">
     <header>
       <search-bar></search-bar>
       <div class="notice">
         <icon-svg icon-class="notice" />
       </div>
-      <v-badge left>
-      <span slot="badge">6</span>
-      <v-icon
-        large
-        color="grey lighten-1"
-      >
-        shopping_cart
-      </v-icon>
-    </v-badge>
     </header>
     <div>
       <p>keke</p>
     </div>
-  </v-layout>
+  </div>
 </template>
 
 <script>
-import SearchBar from './SearchBar.vue'
+import SearchBar from '~/components/index-header/search-bar.vue'
+import Notice from '~/components/index-header/notice.vue'
 
 export default {
   layout: 'sm',
@@ -32,7 +24,7 @@ export default {
   }
 }
 </script>
-<style lang="postcss" scoped>
+<style scoped>
 .container {
   padding: 14px 18px;
 }

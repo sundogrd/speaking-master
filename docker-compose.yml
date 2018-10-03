@@ -7,6 +7,6 @@ services:
     image: speaking-master
     command:
     ports:
-      - 3000:3000
+      - 3093:3093
     volumes:
       - .:/app/speaking-master

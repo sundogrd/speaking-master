@@ -2,7 +2,7 @@
   <div class="searchbar-inner">
     <div class="searchbar-input-wrap">
       <input placeholder="Search" type="search" class="">
-      <i class="searchbar-icon"></i>
+      <icon-svg icon-class="search" />
       <span class="input-clear-button"></span>
     </div>
     <span class="searchbar-disable-button">Cancel</span>
@@ -22,7 +22,7 @@ export default {
   }
 }
 </script>
-<style lang="postcss" scoped>
+<style scoped>
 .search-bar {
   height: 33px;
   margin-right: 5px;

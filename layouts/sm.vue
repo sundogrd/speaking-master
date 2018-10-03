@@ -1,75 +1,9 @@
 <template>
-  <v-app
-    id="inspire"
+  <div
+    class="sm-container"
   >
-    <v-navigation-drawer
-      v-model="drawer"
-      fixed
-      clipped
-      app
-    >
-      <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text">
-          <v-list-tile-action>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title>
-              {{ item.text }}
-            </v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
-        <v-subheader class="mt-3 grey--text text--darken-1">SUBSCRIPTIONS</v-subheader>
-        <v-list>
-          <v-list-tile v-for="item in items2" :key="item.text" avatar>
-            <v-list-tile-avatar>
-              <img :src="`https://randomuser.me/api/portraits/men/${item.picture}.jpg`" alt="">
-            </v-list-tile-avatar>
-            <v-list-tile-title v-text="item.text"></v-list-tile-title>
-          </v-list-tile>
-        </v-list>
-        <v-list-tile class="mt-3">
-          <v-list-tile-action>
-            <v-icon color="grey darken-1">add_circle_outline</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title class="grey--text text--darken-1">Browse Channels</v-list-tile-title>
-        </v-list-tile>
-        <v-list-tile>
-          <v-list-tile-action>
-            <v-icon color="grey darken-1">settings</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title class="grey--text text--darken-1">Manage Subscriptions</v-list-tile-title>
-        </v-list-tile>
-      </v-list>
-    </v-navigation-drawer>
-    <v-content>
-      <v-container fill-height>
-        <nuxt />
-      </v-container>
-    </v-content>
-    <v-bottom-nav
-        :active.sync="bottomNav"
-        :color="color"
-        :value="true"
-        fixed
-        shift
-      >
-        <v-btn dark>
-          <span>Video</span>
-          <v-icon>ondemand_video</v-icon>
-        </v-btn>
-
-        <v-btn dark>
-          <span>Music</span>
-          <v-icon>music_note</v-icon>
-        </v-btn>
-
-        <v-btn dark>
-          <span>Book</span>
-          <v-icon>book</v-icon>
-        </v-btn>
-    </v-bottom-nav>
-  </v-app>
+    <nuxt />
+  </div>
 </template>
 
 <script>
@@ -82,7 +16,6 @@ export default {
       { icon: "subscriptions", text: "Subscriptions" },
       { icon: "history", text: "History" },
       { icon: "featured_play_list", text: "Playlists" },
-      { icon: "watch_later", text: "Watch Later" }
     ],
     items2: [
       { picture: 28, text: "Joseph" },
