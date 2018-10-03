@@ -1,0 +1,12 @@
+version: '2'
+services:
+  speaking-master:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: speaking-master
+    command:
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app/speaking-master

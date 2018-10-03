@@ -65,14 +65,6 @@ module.exports = {
   */
   build: {
     analyze: true,
-    postcss: [
-      require('postcss-nested')(),
-      require('postcss-responsive-type')(),
-      require('postcss-hexrgba')(),
-      require('autoprefixer')({
-        browsers: ['last 3 versions']
-      })
-    ],
     /*
     ** You can extend webpack config here
     */
@@ -93,6 +85,26 @@ module.exports = {
           })
         ]
       }
+      config.module.rules.push({
+        test: /\.postcss$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: [
+                require('postcss-nested')(),
+                require('postcss-responsive-type')(),
+                require('postcss-hexrgba')(),
+                require('autoprefixer')({
+                  browsers: ['last 3 versions']
+                })
+              ]
+            }
+          }
+        ]
+      })
     }
   }
 }

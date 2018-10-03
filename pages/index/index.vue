@@ -5,6 +5,15 @@
       <div class="notice">
         <icon-svg icon-class="notice" />
       </div>
+      <v-badge left>
+      <span slot="badge">6</span>
+      <v-icon
+        large
+        color="grey lighten-1"
+      >
+        shopping_cart
+      </v-icon>
+    </v-badge>
     </header>
     <div>
       <p>keke</p>
@@ -13,7 +22,7 @@
 </template>
 
 <script>
-import SearchBar from './index/SearchBar.vue'
+import SearchBar from './SearchBar.vue'
 
 export default {
   layout: 'sm',
