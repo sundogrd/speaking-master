@@ -59,6 +59,27 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    postcss: {
+      plugins: {
+        'postcss-nested': {},
+        'postcss-responsive-type': {},
+        'postcss-hexrgba': {},
+        'autoprefixer': {
+          browsers: ['last 3 versions']
+        }
+      }
+    },
+    loaders: [{
+      test: /\.css$/,
+      use: [
+        'vue-style-loader',
+        {
+          loader: 'css-loader',
+          options: { importLoaders: 1 }
+        },
+        'postcss-loader'
+      ]
+    }],
     /*
     ** You can extend webpack config here
     */

@@ -1,7 +1,7 @@
 <template>
-  <div id="index">
+  <div class="index">
     <header>
-      <search-bar></search-bar>
+      <search-bar class="search"></search-bar>
       <div class="notice">
         <icon-svg icon-class="notice" />
       </div>
@@ -24,27 +24,20 @@ export default {
   }
 }
 </script>
-<style scoped>
-.container {
-  padding: 14px 18px;
-}
+<style lang="less" scoped>
 .index {
-  .search {
-    height: 33px;
-    margin-right: 5px;
-    color: #aaaaaa;
-    border: 1px solid #bbbbbb;
-    background: #ebebeb;
-    border-radius: 20px;
-    font-size: 13px;
-    .v-input__prepend-outer {
-      i {
-        color: #bbb;
-      }
+  header {
+    display: flex;
+    .search {
+      flex: 1;
     }
-  }
-  .notice {
-
+    .notice {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 0 0 33px;
+      font-size: 24px;
+    }
   }
 }
 </style>

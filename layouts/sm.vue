@@ -40,3 +40,9 @@ export default {
   }
 };
 </script>
+
+<style>
+.sm-container {
+  padding: 14px 17px;
+}
+</style>
