@@ -15,7 +15,7 @@ export default {
   },
   computed: {
     iconName () {
-      return `#sw-${this.iconClass}`
+      return `#sm-${this.iconClass}`
     }
   }
 }
