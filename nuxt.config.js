@@ -31,14 +31,16 @@ module.exports = {
   */
   css: [
     '~/assets/main.css',
-    '~/assets/reset.css'
+    '~/assets/reset.css',
+    'swiper/dist/css/swiper.css'
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '@/plugins/components'
+    '@/plugins/components',
+    { src: '@/plugins/swiper.js', ssr: false }
   ],
 
   /*
@@ -60,6 +62,12 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    babel: {
+      presets: [
+        ["@babel/preset-env", { useBuiltIns: "entry" }]
+      ],
+      plugins: ["transform-vue-jsx", "@babel/plugin-syntax-dynamic-import", "@babel/plugin-transform-runtime"]
+    },
     postcss: {
       plugins: {
         'postcss-nested': {},

@@ -47,3 +47,8 @@ body {
   opacity: 0;
   transform: translate(-30px, 0);
 }
+
+input {
+  border: none;
+  background: transparent;
+}
