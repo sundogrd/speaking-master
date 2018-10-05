@@ -294,5 +294,15 @@
     &.is-active {
       color: #399EF4;
     }
+    &.is-active:after {
+      content: '';
+      display: inline-block;
+      border: 1px solid blue;
+      box-sizing: border-box;
+      bottom: 0px;
+      position: absolute;
+      left: 20px;
+      right: 20px;
+    }
 }
 </style>
