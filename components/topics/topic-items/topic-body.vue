@@ -1,7 +1,7 @@
 <template>
     <div class="topic-body">
-        <div>{{title}}</div>
-        <p>{{content}}</p>
+        <div class="topic-body__title">{{title}}</div>
+        <p class="topic-body__content">{{content}}</p>
     </div>
 </template>
 <script>
@@ -20,12 +20,11 @@ export default {
 </script>
 <style lang="less" scoped>
 .topic-body {
-    font-family: "PingFang SC";
-    & > div {
+    .topic-body__title {
         font-size: 16px;
         color: #000;
     }
-    p {
+    .topic-body__content {
         font-size: 12px;
         color: #666;
     }

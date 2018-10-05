@@ -71,6 +71,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .topic {
+  font-family: 'PingFang SC';
   header {
     display: flex;
     margin-bottom: 16px;

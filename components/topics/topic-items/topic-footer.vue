@@ -32,7 +32,6 @@ export default {
 <style lang="less" scoped>
 .topic-footer {
   margin: 6px 0 4px;
-  font-family: "PingFang SC";
   display: flex;
   justify-content: space-between;
   .topic-footer--time {

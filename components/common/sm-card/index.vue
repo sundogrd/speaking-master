@@ -46,12 +46,10 @@ export default {
   background-color: #fff;
   overflow: hidden;
   color: #303133;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   margin-bottom: 10px;
   .sm-card__header {
     border-bottom: 1px solid #ebeef5;
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
   // .sm-card__body {
@@ -60,7 +58,6 @@ export default {
 .sm-card.is-always-shadow,
 .sm-card.is-hover-shadow:focus,
 .sm-card.is-hover-shadow:hover {
-  -webkit-box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 </style>

@@ -48,7 +48,6 @@
   font-size: 12px;
   color: #409eff;
   border-radius: 4px;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   border: 1px solid rgba(64, 158, 255, .2);
   white-space: nowrap;
@@ -139,7 +138,6 @@
   height: 28px;
   line-height: 26px;
   .sm-icon-close {
-    -webkit-transform: scale(.8);
     transform: scale(.8);
   }
 }
@@ -148,7 +146,6 @@
   padding: 0 8px;
   line-height: 22px;
   .sm-icon-close {
-    -webkit-transform: scale(.8);
     transform: scale(.8);
   }
 }
@@ -158,7 +155,6 @@
   line-height: 19px;
   .sm-icon-close {
     margin-left: -3px;
-    -webkit-transform: scale(.7);
     transform: scale(.7);
   }
 }
