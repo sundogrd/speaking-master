@@ -36,7 +36,10 @@
     <hr />
     <hr />
     <sticky-tabs v-model="activeName" @tab-click="handleTabClick">
-      <tab-pane label="New" name="new">testasd</tab-pane>
+      <tab-pane label="New" name="new">
+        <topic-text-feed></topic-text-feed>
+        <topic-text-picture-feed></topic-text-picture-feed>
+      </tab-pane>
       <tab-pane label="keke" name="keke">keketest</tab-pane>
     </sticky-tabs>
   </div>
@@ -45,6 +48,8 @@
 <script>
 import SearchBar from '~/components/index-header/search-bar.vue'
 import Notice from '~/components/index-header/notice.vue'
+import TopicTextFeed from '~/components/feed/topic-text-feed'
+import TopicTextPictureFeed from '~/components/feed/topic-text-picture-feed'
 import { Tabs as StickyTabs, TabPane, TabBar, TabNav } from '~/components/common/sticky-tabs'
 
 export default {
@@ -54,6 +59,9 @@ export default {
     SearchBar,
     StickyTabs,
     TabPane,
+
+    TopicTextFeed,
+    TopicTextPictureFeed
   },
   mounted() {
     console.log(this.mySwiper)
