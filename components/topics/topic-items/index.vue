@@ -1,6 +1,8 @@
 <template>
   <div>
-    <topic-item v-for="(topic, index) in topics" :key="index" :topic="topic"></topic-item>
+    <nuxt-link v-for="(topic, index) in topics" :key="index" :to="`/topics/${topic.id || 0}`">
+      <topic-item :topic="topic"></topic-item>
+    </nuxt-link>
   </div>
 </template>
 <script>

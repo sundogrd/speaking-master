@@ -45,15 +45,13 @@ export default {
   border-radius: 4px;
   background-color: #fff;
   overflow: hidden;
-  color: #303133;
+  color: @fontBlack;
   transition: 0.3s;
   margin-bottom: 10px;
   .sm-card__header {
     border-bottom: 1px solid #ebeef5;
     box-sizing: border-box;
   }
-  // .sm-card__body {
-  // }
 }
 .sm-card.is-always-shadow,
 .sm-card.is-hover-shadow:focus,

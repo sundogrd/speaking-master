@@ -22,11 +22,11 @@ export default {
 .topic-body {
     .topic-body__title {
         font-size: 16px;
-        color: #000;
+        color: @fontBlack;
     }
     .topic-body__content {
         font-size: 12px;
-        color: #666;
+        color: @fontGray;
     }
 }
 </style>

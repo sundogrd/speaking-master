@@ -1,5 +1,5 @@
 <template>
-    <div class="topic">
+    <div class="topics">
         <header>
             <search-bar class="search"></search-bar>
             <div class="notice">
@@ -26,11 +26,6 @@ import {
 } from "~/components/common/sticky-tabs";
 
 export default {
-  validate({ params }) {
-    // Must be a number
-    // console.log(params.id)
-    return /^\d+$/.test(params.id);
-  },
   components: {
     SearchBar,
     StickyTabs,
@@ -38,11 +33,22 @@ export default {
     TopicItems
   },
   layout: "sm",
+  // async asyncData({app}) {
+  //   debugger
+  //   //   console.log(ctx);
+  //   const topics = await app.$axios.$get('/topics')
+  //   return topics
+  //   .then((res) => {
+  //     console.log(res);
+  //     return { topics: res.data.topics }
+  //   })
+  // },
   data() {
     return {
       activeName: "new",
       topics: [
         {
+          id: 23,
           recommend: "lvfei",
           imgUrl: "",
           tags: ["tecnology", "science"],
@@ -54,6 +60,7 @@ export default {
           like: 23
         },
         {
+          id: 34,
           recommend: "dark deep fantasy",
           imgUrl: "",
           tags: ["tecnology", "science"],
@@ -70,7 +77,7 @@ export default {
 };
 </script>
 <style lang="less" scoped>
-.topic {
+.topics {
   font-family: 'PingFang SC';
   header {
     display: flex;
@@ -79,9 +86,7 @@ export default {
       flex: 1;
     }
     .notice {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .center();
       flex: 0 0 33px;
       font-size: 24px;
     }

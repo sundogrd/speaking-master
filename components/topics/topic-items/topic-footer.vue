@@ -36,11 +36,16 @@ export default {
   justify-content: space-between;
   .topic-footer--time {
     font-size: 10px;
-    color: #b5b5b5;
+    color: @fontGray;
   }
-  .topic-footer--details span {
-    font-size: 10px;
-    color: #b5b5b5;
+  .topic-footer--details {
+    span {
+      font-size: 10px;
+      color: @fontGray;
+    }
+    svg {
+      font-size: 16px;
+    }
   }
 }
 </style>
