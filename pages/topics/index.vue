@@ -33,45 +33,40 @@ export default {
     TopicItems
   },
   layout: "sm",
-  // async asyncData({app}) {
-  //   debugger
-  //   //   console.log(ctx);
-  //   const topics = await app.$axios.$get('/topics')
-  //   return topics
-  //   .then((res) => {
-  //     console.log(res);
-  //     return { topics: res.data.topics }
-  //   })
-  // },
+  async asyncData({app}) {
+    const topics = await app.$axios.$get('http://127.0.0.1:3333/topics')
+    debugger
+    return {topics}
+  },
   data() {
     return {
       activeName: "new",
-      topics: [
-        {
-          id: 23,
-          recommend: "lvfei",
-          imgUrl: "",
-          tags: ["tecnology", "science"],
-          title: "This is a simple title test",
-          content: "This is content test test the content and the component is right or not!something goes wrong",
-          time: '2017.4.23',
-          listenNum: 252,
-          videoNum: 32,
-          like: 23
-        },
-        {
-          id: 34,
-          recommend: "dark deep fantasy",
-          imgUrl: "",
-          tags: ["tecnology", "science"],
-          title: "This is a simple title test",
-          content: "This is content test test the content and the component is right or not!something goes wrong",
-          time: '2018-2-3',
-          listenNum: 252,
-          videoNum: 32,
-          like: 23
-        }
-      ]
+      // topics: [
+      //   {
+      //     id: 23,
+      //     recommend: "lvfei",
+      //     imgUrl: "",
+      //     tags: ["tecnology", "science"],
+      //     title: "This is a simple title test",
+      //     content: "This is content test test the content and the component is right or not!something goes wrong",
+      //     time: '2017.4.23',
+      //     listenNum: 252,
+      //     videoNum: 32,
+      //     like: 23
+      //   },
+      //   {
+      //     id: 34,
+      //     recommend: "dark deep fantasy",
+      //     imgUrl: "",
+      //     tags: ["tecnology", "science"],
+      //     title: "This is a simple title test",
+      //     content: "This is content test test the content and the component is right or not!something goes wrong",
+      //     time: '2018-2-3',
+      //     listenNum: 252,
+      //     videoNum: 32,
+      //     like: 23
+      //   }
+      // ]
     };
   }
 };

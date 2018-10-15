@@ -42,6 +42,7 @@ export default {
     .image {
         width: 100%;
         max-height: 200px;
+        min-height: 150px;
         border-radius: 15px;
     }
     .topic-header--rec {
@@ -51,6 +52,7 @@ export default {
     .topic-header--tags {
         font-size: 10px;
         color: @fontBlack;
+        font-weight: bold;
     }
 }
 </style>
