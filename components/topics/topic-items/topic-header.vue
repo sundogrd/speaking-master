@@ -1,7 +1,7 @@
 <template>
     <div class="topic-header">
         <img :src="imgUrl || 'http://p1.pstatp.com/list/640x360/d27f0005bc717ef8950f'" class="image">
-        <div class="topic-header_detail">
+            <div class="topic-header__detail">
             <span class="topic-header--rec">来自{{recommend}}的推荐</span>
             <span class="topic-header--tags">
                 <sm-tag type="label" v-for="tag in tags" :key="tag">{{tag}}</sm-tag>
@@ -42,15 +42,17 @@ export default {
     .image {
         width: 100%;
         max-height: 200px;
+        min-height: 150px;
         border-radius: 15px;
     }
     .topic-header--rec {
         font-size: 10px;
-        color: #9D9D9D;
+        color: @fontGray;
     }
     .topic-header--tags {
         font-size: 10px;
-        color: #444;
+        color: @fontBlack;
+        font-weight: bold;
     }
 }
 </style>

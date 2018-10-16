@@ -16,3 +16,4 @@ dist
 sw.*
 
 *-lock.json
+.vscode

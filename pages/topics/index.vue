@@ -1,5 +1,5 @@
 <template>
-    <div class="topic">
+    <div class="topics">
         <header>
             <search-bar class="search"></search-bar>
             <div class="notice">
@@ -26,11 +26,6 @@ import {
 } from "~/components/common/sticky-tabs";
 
 export default {
-  validate({ params }) {
-    // Must be a number
-    // console.log(params.id)
-    return /^\d+$/.test(params.id);
-  },
   components: {
     SearchBar,
     StickyTabs,
@@ -38,39 +33,46 @@ export default {
     TopicItems
   },
   layout: "sm",
+  async asyncData({app}) {
+    const topics = await app.$axios.$get('http://127.0.0.1:3333/topics')
+    debugger
+    return {topics}
+  },
   data() {
     return {
       activeName: "new",
-      topics: [
-        {
-          recommend: "lvfei",
-          imgUrl: "",
-          tags: ["tecnology", "science"],
-          title: "This is a simple title test",
-          content: "This is content test test the content and the component is right or not!something goes wrong",
-          time: '2017.4.23',
-          listenNum: 252,
-          videoNum: 32,
-          like: 23
-        },
-        {
-          recommend: "dark deep fantasy",
-          imgUrl: "",
-          tags: ["tecnology", "science"],
-          title: "This is a simple title test",
-          content: "This is content test test the content and the component is right or not!something goes wrong",
-          time: '2018-2-3',
-          listenNum: 252,
-          videoNum: 32,
-          like: 23
-        }
-      ]
+      // topics: [
+      //   {
+      //     id: 23,
+      //     recommend: "lvfei",
+      //     imgUrl: "",
+      //     tags: ["tecnology", "science"],
+      //     title: "This is a simple title test",
+      //     content: "This is content test test the content and the component is right or not!something goes wrong",
+      //     time: '2017.4.23',
+      //     listenNum: 252,
+      //     videoNum: 32,
+      //     like: 23
+      //   },
+      //   {
+      //     id: 34,
+      //     recommend: "dark deep fantasy",
+      //     imgUrl: "",
+      //     tags: ["tecnology", "science"],
+      //     title: "This is a simple title test",
+      //     content: "This is content test test the content and the component is right or not!something goes wrong",
+      //     time: '2018-2-3',
+      //     listenNum: 252,
+      //     videoNum: 32,
+      //     like: 23
+      //   }
+      // ]
     };
   }
 };
 </script>
 <style lang="less" scoped>
-.topic {
+.topics {
   font-family: 'PingFang SC';
   header {
     display: flex;
@@ -79,9 +81,7 @@ export default {
       flex: 1;
     }
     .notice {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      .center();
       flex: 0 0 33px;
       font-size: 24px;
     }

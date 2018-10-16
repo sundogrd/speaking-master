@@ -4,12 +4,18 @@
       <span>{{time}}</span>
     </div>
     <div class="topic-footer--details">
-      <icon-svg icon-class="video"></icon-svg>
-      <span>{{videoNum}}</span>
-      <icon-svg icon-class="watch"></icon-svg>
-      <span>{{listenNum}}</span>
-      <icon-svg icon-class="collection"></icon-svg>
-      <span>{{like}}</span>
+      <span class="topic-footer--detail">
+        <icon-svg icon-class="video"></icon-svg>
+        <span>{{videoNum}}</span>
+      </span>
+      <span class="topic-footer--detail">
+        <icon-svg icon-class="watch"></icon-svg>
+        <span>{{listenNum}}</span>
+      </span>
+      <span class="topic-footer--detail">
+        <icon-svg icon-class="collection"></icon-svg>
+        <span>{{like}}</span>
+      </span>
     </div>
   </div>
 </template>
@@ -34,14 +40,27 @@ export default {
   margin: 6px 0 4px;
   display: flex;
   justify-content: space-between;
+
   .topic-footer--time {
     font-size: 10px;
-    color: #b5b5b5;
+    color: @fontGray;
   }
-  .topic-footer--details span {
-    font-size: 10px;
-    color: #b5b5b5;
+
+  .topic-footer--details {
+    .center();
+    .topic-footer--detail {
+      .center();
+      margin-left: 12px;
+      span {
+        font-size: 10px;
+        color: @fontGray;
+      }
+
+      svg {
+        margin-right: 3px;
+        font-size: 16px;
+      }
+    }
   }
 }
 </style>
-

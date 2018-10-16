@@ -122,11 +122,11 @@ export default {
       text-align: center;
       .icon {
         margin-bottom: 4px;
-        color: #399EF4;
+        color: @blue;
         font-size: 44px;
       }
       font-size: 14px;
-      color: #B2B2B2;
+      color: @fontGray;
     }
   }
   .banner {

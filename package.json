@@ -5,18 +5,22 @@
   "author": "lwyj123",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --max-old-space-size=4096 --watch server",
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --max-old-space-size=4096 --watch server & npm run mock",
+    "mock": "nodemon mock/server.js",
+    "dev-debug": "node --inspect node_modules/.bin/nuxt & node --inspect mock/server.js",
     "nuxt": "nuxt",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint && sh ./scripts/check-branch-name.sh",
-    "commitmsg": "commitlint -e"
+    "commitmsg": "commitlint -e",
+    "commit": "npx git-cz"
   },
   "dependencies": {
     "@babel/runtime": "^7.1.2",
     "@nuxtjs/axios": "^5.3.3",
+    "@nuxtjs/proxy": "^1.2.4",
     "@nuxtjs/pwa": "^2.6.0",
     "koa": "^2.3.0",
     "nuxt": "^2.1.0"
@@ -38,8 +42,10 @@
     "eslint-loader": "^2.1.1",
     "eslint-plugin-vue": "^5.0.0-beta.2",
     "husky": "^0.14.3",
+    "json-server": "^0.14.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    "mockjs": "^1.0.1-beta3",
     "nodemon": "^1.18.4",
     "postcss-hexrgba": "^1.0.1",
     "postcss-loader": "^3.0.0",

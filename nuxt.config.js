@@ -40,7 +40,9 @@ module.exports = {
   */
   plugins: [
     '@/plugins/components',
-    { src: '@/plugins/swiper.js', ssr: false }
+    { src: '@/plugins/swiper.js', ssr: false },
+    { src: '@/plugins/mock.js', ssr: true },
+    '@/plugins/axios'
   ],
 
   /*
@@ -49,6 +51,7 @@ module.exports = {
   modules: [
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
+    // '@nuxtjs/proxy',
     '@nuxtjs/pwa'
   ],
   /*
@@ -56,8 +59,14 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    // prefix: '/api/',
+    // proxy: true
+    // port: 3091,
+    // retry: {retries: 4}
   },
-
+  // proxy: [
+  //   ['/api', { target: 'http://localhost:3091', pathRewrite: {'^/api/': ''} }]
+  // ],
   /*
   ** Build configuration
   */
@@ -76,6 +85,17 @@ module.exports = {
         'autoprefixer': {
           browsers: ['last 3 versions']
         }
+      }
+    },
+    // 一些全局样式
+    styleResources: {
+      // scss: './assets/variables.scss',
+      less: './assets/common.less',
+      // sass: ...,
+      // scss: ...
+      options: {
+        // See https://github.com/yenshih/style-resources-loader#options
+        // Except `patterns` property
       }
     },
     loaders: [{
